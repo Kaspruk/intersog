@@ -49,6 +49,143 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    cursor: pointer;
   }
 
+}
+
+.v-item-group{
+  .v-btn{
+    opacity: 1;
+    &:before{
+      opacity: 0;
+      background-color: #1976d2;
+    }
+    &--active{
+      .v-btn__content{
+        color: #ffffff;
+      }
+      &:before{
+        opacity: 1;
+        background-color: #1976d2;
+      }
+    }
+  }
+}
+
+
+.company-move {
+  transition: all 400ms ease-in-out 50ms;
+}
+.company-enter-active {
+  transition: all 250ms ease-out;
+}
+.company-leave-active {
+  transition: all 150ms ease-in;
+  position: absolute;
+  z-index: 0;
+}
+.company-enter, .company-leave-to {
+  opacity: 0;
+}
+.company-enter {
+  -webkit-transform: scale(0.9);
+  transform: scale(0.9);
+}
+
+
+.slide-line-menu{
+  height: 36px;
+  border-bottom: 2px solid #E0E0E0;
+  position: relative;
+  .v-item-group{
+    background-color: transparent;
+    box-shadow: none;
+  }
+  .v-btn{
+    padding: 0 85px 10px;
+    &:before{
+      display: none;
+    }
+    &__content{
+      pointer-events: none;
+      color: #000000;
+      font-size: 15px;
+      font-weight: 500;
+      transition: color .25s ease-in;
+    }
+    &:hover{
+      .v-btn__content{
+        color: #42A5F5;
+      }
+    }
+    &--active{
+      .v-btn__content{
+        color: #42A5F5;
+      }
+    }
+  }
+  &_line{
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    height: 3px;
+    min-width: 20px;
+    background-color: #42A5F5;
+    transition: all .2s ease-in;
+  }
+}
+
+.combobox{
+  border-right: 1px solid #E0E0E0;
+  .v-input__slot{
+    &::before {
+      border-color: #E0E0E0 !important;
+    }
+  }
+  .v-label{
+    left: 15px !important;
+  }
+  .v-select__slot{
+    padding: 0 15px;
+  }
+}
+
+.filter_btn{
+  min-width: 140px;
+}
+
+.companyItem{
+  background-color: white;
+}
+
+.v-image{
+  &_caption{
+    background-color: rgba(0,0,0, 0.8);
+    height: 100%;
+    color: white;
+    text-transform: uppercase;
+    padding: 10px;
+    font-weight: 300;
+    font-size: 13px;
+    opacity: 0;
+    transition: opacity .25s ease-in;
+  }
+  &:hover{
+    .v-image_caption{
+      opacity: 1;
+    }
+  }
+}
+
+.fade-leave, .fade-enter-to {
+  opacity: 1;
+  transform: scale(1);
+}
+.fade-enter-active, .fade-leave-active {
+  transition: all .35s;
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+  transform: scale(0);
 }

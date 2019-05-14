@@ -2,23 +2,26 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 import Dashboard from './views/DashboardPage.vue'
+import Details from './views/DetailsPage.vue'
 
 Vue.use(Router);
 
-export default new Router({
+export const router = new Router({
   routes: [
     {
-      path: '/',
+      path: '/dashboard',
       name: 'dashboard-page',
       component: Dashboard
     },
-    /*{
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ /*'./views/About.vue')
-    }*/
+    {
+      path: '/campaigns/:objectId',
+      name: 'details-page',
+      component: Details
+    },
+    {
+      path: '*',
+      redirect: '/dashboard'
+    },
   ]
-})
+});
+export default router
